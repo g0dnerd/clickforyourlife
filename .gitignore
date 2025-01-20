@@ -1,0 +1,6 @@
+/target
+/pkg
+/**/node_modules
+notes.md
+package-lock.json
+Cargo.lock
