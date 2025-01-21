@@ -1,0 +1,148 @@
+html {
+  --flow-small: 10px;
+  --flow-medium: 20px;
+  --black: #161b27;
+  --true-black: #111;
+  --main-color: #00a5d6;
+  --secondary-color: #273582;
+  --text-gray: #4a5056;
+  --gray: #9da4b2;
+  --yellow: #ffce00;
+  --green: limegreen;
+  --red: red;
+  --border: 1px solid RGBA(0, 0, 0, 0.2);
+  --radius: 5px;
+  --inner-padding: 5px;
+  background: #252525;
+}
+
+.open-sans-variable {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+body.app {
+  font-family: "Open Sans", sans-serif;
+}
+
+body.darkmode {
+  background: #252525;
+  color: white;
+  --border: 1px solid RGBA(255, 255, 255, 0.2);
+}
+
+h1 {
+  font-size: 1.8em;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  margin-top: 0.3em;
+  font-weight: 600;
+}
+
+h4 {
+  margin-top: -1em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 400;
+  margin-block-end: 3em;
+}
+
+.wealth-o-meter {
+  min-height: fit-content;
+}
+
+.wealth-o-meter.status.worth {
+  font-size: 1.2rem;
+}
+
+.wealth-o-meter.status.growth {
+  margin-top: -1em;
+  color: var(--gray);
+  margin-block-end: 3em;
+}
+
+.wealth-o-meter.status.worth-toast.inactive {
+  display: none;
+  opacity: 0;
+}
+.wealth-o-meter.status.worth-toast.active {
+  position: absolute;
+  top: 4.8em;
+  left: 14rem;
+  z-index: 1;
+  font-size: 1.2rem;
+  color: red;
+  opacity: 1;
+  animation: fadeOut 3.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+.buttons {
+  align-items: center;
+  text-align: center;
+  width: 75%;
+  display: flex;
+  flex-flow: row;
+  button {
+    width: 50%;
+  }
+}
+
+.alert {
+  text-align: left;
+  position: relative;
+  left: 2em;
+}
+
+button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  color: white;
+  background-color: var(--main-color);
+  padding: 7px 5px;
+  font-size: 1.2em;
+}
+
+button:hover {
+  background-color: white;
+  color: var(--main-color);
+}
+
+button:disabled {
+  pointer-events: none;
+  color: #ccc;
+  background: transparent;
+  border: var(--border);
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  margin: auto;
+  bottom: 0;
+  font-size: 0.7rem;
+  font-weight: 200;
+  color: var(--gray);
+  p {
+    text-align: center;
+  }
+}
