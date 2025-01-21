@@ -38,7 +38,7 @@ impl Player {
         if self.rate == 1.0 {
             String::from("1")
         } else {
-            format!("{:.3}", self.rate)
+            format!("{:.2}", self.rate)
         }
     }
 }
