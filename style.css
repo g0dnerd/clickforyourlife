@@ -27,16 +27,10 @@ body.big-number {
   font-family: "Open Sans", sans-serif;
 }
 
-.big-number.darkmode {
-  background: #252525;
-  color: white;
-  --border: 1px solid RGBA(255, 255, 255, 0.2);
-}
-
 .container {
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   flex-flow: column wrap;
 }
 
@@ -47,6 +41,7 @@ body.big-number {
 }
 
 .header {
+  width: 50%;
   display: flex;
   flex-flow: column;
   h1 {
@@ -115,9 +110,6 @@ body.big-number {
 }
 
 .buttons {
-  width: 50%;
-  display: flex;
-  flex-flow: column wrap;
   p {
     margin-top: 0px;
     width: 100%;
@@ -126,13 +118,17 @@ body.big-number {
 
 button {
   margin-top: 1em;
+  width: 50%;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
+  color: var(--black);
   color: white;
+  background-color: var(--yellow);
   background-color: var(--main-color);
   padding: 7px 5px;
-  font-size: 1.2em;
+  font-weight: 500;
+  font-size: 1.8em;
 }
 
 button:hover {
@@ -145,6 +141,12 @@ button:disabled {
   color: #ccc;
   background: transparent;
   border: var(--border);
+}
+
+.big-number.darkmode {
+  background: #252525;
+  color: white;
+  --border: 1px solid RGBA(255, 255, 255, 0.2);
 }
 
 .footer {
