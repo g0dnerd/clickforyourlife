@@ -11,15 +11,13 @@
     />
     <title>Click for your corporate overlords</title>
   </head>
-  <body class="big-number darkmode">
+  <body class="app darkmode">
+    <h1>Human resource efficiency assessment</h1>
+    <h4>
+      Thank you for voluntarily submitting to the mandatory workforce net worth
+      evaluation. Please remain productive at all times.
+    </h4>
     <div class="container">
-      <div class="header">
-        <h1>Human resource efficiency assessment</h1>
-        <h4 class="subtitle">
-          Thank you for voluntarily submitting to the mandatory workforce net
-          worth evaluation. Please remain productive at all times.
-        </h4>
-      </div>
       <div class="wealth-o-meter">
         <div class="wealth-o-meter status">
           <p class="wealth-o-meter status worth" id="current-worth"></p>
@@ -30,13 +28,17 @@
           <p class="wealth-o-meter status growth" id="current-growth"></p>
         </div>
       </div>
-      <div class="buttons">
-        <button class="buttons joy btn" id="button-of-joy">Feel joy</button>
-        <p class="buttons joy alert"></p>
-        <button class="buttons work btn" id="button-of-work">
-          Work harder
-        </button>
-        <p class="buttons work alert"></p>
+      <div class="interaction-pane">
+        <div class="buttons work">
+          <button class="buttons work btn" id="button-of-work">
+            Work harder
+          </button>
+          <p class="buttons work alert" id="alert-of-work"></p>
+        </div>
+        <div class="buttons joy">
+          <button class="buttons joy btn" id="button-of-joy">Feel joy</button>
+          <p class="buttons joy alert" id="alert-of-joy"></p>
+        </div>
       </div>
       <script src="./index.js"></script>
     </div>

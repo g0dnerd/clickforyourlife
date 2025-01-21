@@ -18,84 +18,67 @@ html {
 
 .open-sans-variable {
   font-family: "Open Sans", sans-serif;
-  font-weight: 200 700;
+  font-optical-sizing: auto;
+  font-weight: 200;
   font-display: swap;
   font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
-body.big-number {
+body.app {
   font-family: "Open Sans", sans-serif;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
+body.darkmode {
+  background: #252525;
+  color: white;
+  --border: 1px solid RGBA(255, 255, 255, 0.2);
 }
 
-.container > * {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-size: 1.8em;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  margin-top: 0.3em;
+  font-weight: 600;
 }
 
-.header {
-  width: 50%;
-  display: flex;
-  flex-flow: column;
-  h1 {
-    font-size: 1.8em;
-    border-bottom: 1px solid white;
-    padding-bottom: 5px;
-    margin-top: 0.3em;
-    font-weight: 600;
-    margin-block-end: 0em;
-  }
-  h4.subtitle {
-    margin-block-start: 0.2em;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    color: var(--gray);
-    font-weight: 400;
-  }
+h4 {
+  margin-top: -1em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 400;
+  margin-block-end: 3em;
 }
 
 .wealth-o-meter {
-  margin-block-start: 0.5em;
-  display: flex;
-  flex-flow: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  min-height: fit-content;
 }
 
-.wealth-o-meter.status {
-  display: flex;
-  flex-flow: column;
-  position: relative;
-}
 .wealth-o-meter.status.worth {
-  font-size: 1.2em;
-  margin-bottom: 0px;
+  font-size: 1.2rem;
 }
+
+.wealth-o-meter.status.growth {
+  margin-top: -1em;
+  color: var(--gray);
+  margin-block-end: 3em;
+}
+
 .wealth-o-meter.status.worth-toast.inactive {
   display: none;
   opacity: 0;
 }
 .wealth-o-meter.status.worth-toast.active {
-  display: absolute;
   position: absolute;
-  bottom: 2rem;
-  left: 65%;
-  font-size: 0.9rem;
+  top: 4.8em;
+  left: 14rem;
+  z-index: 1;
+  font-size: 1.2rem;
   color: red;
   opacity: 1;
-  animation: fadeOut 2.5s forwards;
-}
-.wealth-o-meter.status.growth {
-  margin-top: 0px;
-  color: var(--gray);
+  animation: fadeOut 3.5s forwards;
 }
 
 @keyframes fadeOut {
@@ -105,30 +88,38 @@ body.big-number {
   }
   100% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-40px);
   }
 }
 
 .buttons {
-  p {
-    margin-top: 0px;
-    width: 100%;
+  align-items: center;
+  text-align: center;
+  width: 75%;
+  display: flex;
+  flex-flow: row;
+  button {
+    width: 50%;
   }
+}
+
+.alert {
+  text-align: left;
+  position: relative;
+  left: 2em;
 }
 
 button {
   margin-top: 1em;
-  width: 50%;
+  margin-bottom: 1em;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
-  color: var(--black);
+  justify-content: center;
   color: white;
-  background-color: var(--yellow);
   background-color: var(--main-color);
   padding: 7px 5px;
-  font-weight: 500;
-  font-size: 1.8em;
+  font-size: 1.2em;
 }
 
 button:hover {
@@ -141,12 +132,6 @@ button:disabled {
   color: #ccc;
   background: transparent;
   border: var(--border);
-}
-
-.big-number.darkmode {
-  background: #252525;
-  color: white;
-  --border: 1px solid RGBA(255, 255, 255, 0.2);
 }
 
 .footer {
