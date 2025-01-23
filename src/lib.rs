@@ -2,10 +2,14 @@ use std::fmt;
 
 use wasm_bindgen::prelude::*;
 
+const EXHAUSTION_LIMITS: [usize; 4] = [10, 25, 45, 70];
+
 #[wasm_bindgen]
 pub struct Player {
     wealth: f64,
     rate: f64,
+    worked: usize,
+    exhaustion_level: usize,
 }
 
 #[wasm_bindgen]
@@ -15,6 +19,8 @@ impl Player {
         Self {
             wealth: 0.0,
             rate: 1.0,
+            worked: 0,
+            exhaustion_level: 0,
         }
     }
 
@@ -30,13 +36,21 @@ impl Player {
         self.rate += amount;
     }
 
+    pub fn work(&mut self) -> usize {
+        self.worked += 1;
+        if self.worked >= EXHAUSTION_LIMITS[self.exhaustion_level] {
+            self.exhaustion_level += 1;
+        }
+        self.exhaustion_level
+    }
+
     pub fn render(&self) -> String {
         self.to_string()
     }
 
     pub fn render_rate(&self) -> String {
-        if self.rate == 1.0 {
-            String::from("1")
+        if self.rate.fract() == 0.0 {
+            format!("{}", self.rate.trunc() as u64)
         } else {
             format!("{:.2}", self.rate)
         }

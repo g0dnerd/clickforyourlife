@@ -36,6 +36,7 @@ body.darkmode {
 }
 
 h1 {
+  text-align: center;
   font-size: 1.8em;
   border-bottom: 1px solid white;
   padding-bottom: 5px;
@@ -44,6 +45,7 @@ h1 {
 }
 
 h4 {
+  text-align: center;
   margin-top: -1em;
   font-size: 0.8em;
   text-transform: uppercase;
@@ -54,6 +56,7 @@ h4 {
 
 .wealth-o-meter {
   min-height: fit-content;
+  text-align: center;
 }
 
 .wealth-o-meter.status.worth {
@@ -73,7 +76,7 @@ h4 {
 .wealth-o-meter.status.worth-toast.active {
   position: absolute;
   top: 4.8em;
-  left: 14rem;
+  left: 53%;
   z-index: 1;
   font-size: 1.2rem;
   color: red;
@@ -93,38 +96,45 @@ h4 {
 }
 
 .buttons {
-  align-items: center;
   text-align: center;
-  width: 75%;
-  display: flex;
-  flex-flow: row;
-  button {
-    width: 50%;
-  }
 }
 
 .alert {
-  text-align: left;
-  position: relative;
-  left: 2em;
+  min-height: 1.5em;
+  text-align: center;
+  margin-bottom: 2em;
 }
 
 button {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 0 0.3em 0.3em 0;
+  display: inline-block;
+  box-sizing: border-box;
+  text-transform: uppercase;
   font-weight: 500;
-  text-align: center;
   text-decoration: none;
-  justify-content: center;
   color: white;
-  background-color: var(--main-color);
-  padding: 7px 5px;
-  font-size: 1.2em;
+  min-width: 10em;
+  padding: 0.35em 1.2em;
+  font-size: 1.5em;
+  border: 0.1em solid white;
+  border-radius: 0.12em;
+  transition: all 0.2s;
+}
+
+@media all and (max-width: 30em) {
+  button {
+      display: block;
+      margin: 0.4em auto;
+  }
 }
 
 button:hover {
   background-color: white;
   color: var(--main-color);
+}
+button:active {
+   color: #bbbbbb;
+   border-color: #bbbbbb;
 }
 
 button:disabled {
