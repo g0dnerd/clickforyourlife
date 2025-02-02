@@ -1,0 +1,2 @@
+[build]
+rustflags = ['getrandom_backend="wasm_js"']
