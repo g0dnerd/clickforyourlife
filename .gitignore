@@ -4,3 +4,4 @@
 notes.md
 package-lock.json
 Cargo.lock
+dist/
