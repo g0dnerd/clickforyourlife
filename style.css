@@ -172,12 +172,12 @@ button.joy:disabled {
 
 button.joy.joyous {
   font-family: "Courier New";
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   border-color: green;
 }
 button.joy.cooldown {
   font-family: "Courier New";
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 button.work:disabled {
