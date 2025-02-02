@@ -15,7 +15,6 @@ html {
   --inner-padding: 5px;
   background: #252525;
   font-size: 1.8em;
-  overflow: hidden;
 }
 
 .open-sans-variable {
@@ -35,7 +34,9 @@ html {
 }
 
 .container {
-  height: 100vh;
+  display: grid;
+  gap: 0 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 body.app {
@@ -71,42 +72,33 @@ h5 {
   text-align: center;
 }
 
-.wealth-o-meter {
-  min-height: fit-content;
+.wealth-o-meter.panel-header {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.panel-header {
+  margin: 0;
   text-align: center;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
-.wealth-o-meter.status.greeting {
+.panel-header.intro {
   font-size: 0.5rem;
-  margin-bottom: 0;
   color: var(--gray);
+  display: inline-block;
 }
 
-.wealth-o-meter.status.worth {
-  font-size: 0.8rem;
-  margin-top: 0;
+.panel-header.title {
+  color: white;
+  font-size: 1rem;
 }
 
-.wealth-o-meter.status.growth {
-  font-size: 0.7rem;
-  margin-top: -1em;
+.panel-header.subtitle {
+  font-size: 0.5rem;
   color: var(--gray);
-  margin-block-end: 3em;
-}
-
-.wealth-o-meter.status.worth-toast.inactive {
-  display: none;
-  opacity: 0;
-}
-.wealth-o-meter.status.worth-toast.active {
-  position: absolute;
-  top: 4.8em;
-  left: 53%;
-  z-index: 1;
-  font-size: 1.2rem;
-  color: red;
-  opacity: 1;
-  animation: fadeOut 3.5s forwards;
+  margin-bottom: 1rem;
 }
 
 @keyframes fadeOut {
@@ -120,23 +112,24 @@ h5 {
   }
 }
 
-.buttons {
-  text-align: center;
+.interaction-pane {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 7;
+  display: flex;
+  flex-flow: column;
 }
 
-.alert {
-  min-height: 1.5em;
-  font-size: 0.7rem;
+.buttons {
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
 }
 
 button {
   background: transparent;
   width: 100%;
   min-width: 10em;
-  max-width: 25em;
+  max-width: 500px;
   max-height: 3.2rem;
   margin: 0 0.3em 0.3em 0;
   display: inline-block;
@@ -146,17 +139,18 @@ button {
   text-decoration: none;
   color: white;
   padding: 0.8rem 1.2em;
-  font-size: 1rem;
+  font-size: 0.8rem;
   border: var(--border);
   border-radius: var(--radius);
   transition: all 0.2s;
   line-height: 1rem;
+  justify-content: center;
 }
 
 @media all and (max-width: 30em) {
   button {
-      display: block;
-      margin: 0.4em auto;
+    display: block;
+    margin: 0.4em auto;
   }
 }
 
@@ -165,8 +159,8 @@ button:hover {
   color: var(--main-color);
 }
 button:active {
-   color: #bbbbbb;
-   border-color: #bbbbbb;
+  color: #bbbbbb;
+  border-color: #bbbbbb;
 }
 
 button.joy:disabled {
@@ -177,11 +171,13 @@ button.joy:disabled {
 }
 
 button.joy.joyous {
+  font-family: "Courier New";
+  font-size: 0.7rem;
   border-color: green;
 }
 button.joy.cooldown {
   font-family: "Courier New";
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 button.work:disabled {
@@ -192,26 +188,23 @@ button.work:disabled {
 }
 
 .store {
-  height: 20%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.store.panel-header {
+  word-wrap: break-word;
+  grid-row-start: 1;
+  grid-row-end: 2;
   text-align: center;
-  align-items: center;
-}
-
-.store.header {
-  margin-bottom: 0;
-}
-
-.store.subtitle {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
 }
 
 .store.purchase {
   display: flex;
-  flex-flow: row wrap;
-  text-align: center;
-  justify-content: center;
+  flex-flow: column wrap;
   align-items: center;
+  grid-row-start: 2;
+  grid-row-end: 7;
 }
 
 .store.purchase.item.failure {
@@ -223,14 +216,9 @@ button.work:disabled {
 }
 
 button.store {
-  justify-content: center;
-  width: 30%;
-  min-width: 0;
-  max-width: 100%;
   min-height: 2rem;
   max-height: 2rem;
   font-size: 0.5rem;
-  padding: 0rem 1em;
 }
 
 button.store.inactive {
@@ -249,35 +237,39 @@ button.store:disabled {
 }
 
 span.superscript {
-  font-size: 0.3rem;
-  position: relative;
-  bottom: 0.3rem;
+  font-size: 50%;
+  vertical-align: super;
 }
 
-.exhaustion {
-  align-content: center;
-  text-align: center;
-  width: 50%;
-  margin: 0 auto;
-  opacity: 0;
+.info-panel {
+  grid-row-start: 2;
+  grid-row-end: 7;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  margin: 0;
+  padding: 0 1rem 0 1rem;
 }
-.exhaustion.border {
+
+.info-panel.inactive {
+  opacity: 0%;
+}
+
+.info-panel.name {
+  font-size: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.info-panel.description {
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  font-size: 0.5rem;
   border: var(--border);
+  border-radius: var(--radius);
   border-color: var(--gray);
-}
-.exhaustion.bar {
-  background-color: yellow;
-  height: 1.3rem;
-  opacity: 0.8;
-  width: 0;
-  margin: 0 0;
 }
 
 .footer {
-  display: flex;
-  flex-flow: column;
-  margin: auto;
-  width: 100%;
+  position: fixed;
+  bottom: 0;
   font-size: 0.7rem;
   font-weight: 200;
   color: var(--gray);
@@ -286,17 +278,8 @@ span.superscript {
 ul.footnote {
   list-style-type: none;
   padding: 0.2rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   text-align: left;
   margin-top: 0;
   font-size: 0.3rem;
   counter-increment: section;
-}
-
-p.thankyou {
-  text-align: center;
-  margin-bottom: 1rem;
-  padding: 0.3rem 0.3rem;
 }
